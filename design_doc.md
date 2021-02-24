@@ -28,6 +28,7 @@ This program's features and workflow will be heavily inspired by [`Audacity`], a
 * Menu for choosing record mode (loop with comping, no looping)
 * When comping, automatically add track underneath the current track when recording a new take
 * When comping, automatically put current track and any new tracks into its own track folder
+* A menu to select recording quality (float32, 24bit PCM, 16bit PCM, 8bit PCM)
 
 ## Playback
 * Realtime playback of audio, with loop points
