@@ -58,6 +58,7 @@ This program's features and workflow will be heavily inspired by [`Audacity`], a
 * Color selector for color-coding tracks
 * Arm track button (with text displaying selected audio source). This will flash red while recording
 * Peak/RMS meters. When a track is armed, show the levels of the current audio source (even while not recording)
+* Fader & pan controls
 * Add/remove tracks
 * Duplicate tracks
 * Arrange order of tracks with mouse or keyboard
