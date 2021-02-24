@@ -83,6 +83,7 @@ This program's features and workflow will be heavily inspired by [`Audacity`], a
 * a menu for effects like gain, pan, fade, clip, reverse, stretch, and pitch that can be applied to the selection
 * a menu to replace current selection with a beep or noise (This could be a keyboard shortcut on the timeline view as well)
 * undo/redo/apply effects
+* When applied, the clip gets rendered as a new wav file. Place this wav file on the timeline by splitting the current clip and putting a clip of this new file in its place
 
 ## Mixer View UI
 * horizontal mixer with faders, pan control, and peak/rms meter for each track
