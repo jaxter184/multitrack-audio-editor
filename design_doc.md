@@ -54,7 +54,7 @@ This program's features and workflow will be heavily inspired by [`Audacity`], a
 # Stage 3
 
 ## Backend
-* Define and create a framework for a simple effect graph.
+* Define and create a framework for a simple effect graph (a single effect per track).
 * Define and support basic "effect" clips that are processed after loading the raw samples from file.
   * Create simple effects like gain, pan, and silence.
 
@@ -70,7 +70,8 @@ This program's features and workflow will be heavily inspired by [`Audacity`], a
 # Stage 4
 
 ## Backend
-* Create functioning audio graph system that can process multiple layers of effect clips on a single track.
+* Export resampling
+* Export dithering
 
 ## Multitrack editing
 * split tool that splits one audio clip into two
@@ -83,31 +84,8 @@ This program's features and workflow will be heavily inspired by [`Audacity`], a
 
 # Stage 5
 
-## Backend
-* Enable hosting LV2 effect plugins (and possibly VST?). Only support audio effects. No MIDI or automation.
-* Create more basic effects (like noise, beep, clip, etc.)
-
-## Effect Clips UI
-* Add ability to insert layers of "effect" clips that appear below the waveform view of the track.
-* Resize and move these "effect" clips
-* When an effect clip is selected, show a panel somewhere with the controls of that effect.
-* Create the panel controls for basic effects (gain, pan, silence)
-* Fade controls on the ends of each effect clip
-
-# Stage 6
-
-## Backend
-* Polish backend code.
-* More effects?
-
-## Mixer View UI
-* horizontal mixer view of each track (including master track)
-* fader & pan controls on each track
-* peak/rms meters on each track
-* several vertical slots above each track where a plugin can be inserted
-* a generic plugin view
-
-# Stage 7
+## UI
+* Import audio clip into a new track.
 
 ## Export Menu UI
 * A dialog for exporting to a wav file (with more codecs later)
@@ -117,6 +95,34 @@ This program's features and workflow will be heavily inspired by [`Audacity`], a
 * select theme
 * select language (we only support English for now)
 * autosave and backup save settings
+
+# End of MVP!
+
+# Stage 6
+
+## Backend
+* Create functioning audio graph system that can process multiple layers of effect clips on a single track.
+* Resampling audio files to match project sample rate. This resampling process will be inserted into the audio graph before other effects are applied.
+
+## Effect Clips UI
+* Add ability to insert layers of "effect" clips that appear below the waveform view of the track.
+* Resize and move these "effect" clips
+* When an effect clip is selected, show a panel somewhere with the controls of that effect.
+* Create the panel controls for basic effects (gain, pan, silence)
+* Fade controls on the ends of each effect clip
+
+# Stage 7
+
+## Backend
+* Create more basic effects (like noise, beep, clip, etc.)
+* Enable hosting LV2 effect plugins (and possibly VST?). Only support audio effects. No MIDI or automation.
+
+## Mixer View UI
+* horizontal mixer view of each track (including master track)
+* fader & pan controls on each track
+* peak/rms meters on each track
+* several vertical slots above each track where a plugin can be inserted
+* a generic plugin view
 
 # Non-Goals
 
