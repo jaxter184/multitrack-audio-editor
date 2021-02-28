@@ -60,5 +60,27 @@ impl BuildHandler for TrackView {
 }
 
 impl EventHandler for TrackView {
-
+    fn on_event(&mut self, state: &mut State, entity: Entity, event: &mut Event) {
+        if let Some(window_event) = event.message.downcast::<WindowEvent>() {
+            match window_event {
+                WindowEvent::MouseDown(button) => {
+                    if entity == state.hovered {
+				        Track::new().build(state, entity, |builder| builder);
+                    }
+                    state.focused = entity;
+                },
+                WindowEvent::KeyDown(code, _) => {
+	                match code {
+		                Code::KeyH => {
+					        println!("poo");
+					        Track::new().build(state, entity, |builder| builder.set_background_color(Color::rgb(80,80,80)));
+		                },
+		                _ => (),
+	                }
+                },
+                _ => (),
+            }
+        }
+    }
 }
+

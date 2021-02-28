@@ -24,5 +24,16 @@ impl BuildHandler for Track {
 }
 
 impl EventHandler for Track {
-
+    fn on_event(&mut self, state: &mut State, entity: Entity, event: &mut Event) {
+        if let Some(window_event) = event.message.downcast::<WindowEvent>() {
+            match window_event {
+                WindowEvent::MouseDown(button) => {
+                    if entity == state.hovered {
+				        state.remove(entity);
+                    }
+                },
+                _ => (),
+            }
+        }
+    }
 }
