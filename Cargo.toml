@@ -7,5 +7,5 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-tuix = {git = "https://github.com/geom3trik/tuix", rev = "196e0931902bcc112520cbe73f56101d15e0cdbe"}
-# tuix = {path = "../tuix"}
+tuix = {git = "https://github.com/geom3trik/tuix", rev = "498a4f0b6c4f3591b5bb362c3d986a95d7d1c129"}
+# tuix = {path = "../../not_mine/tuix"}
