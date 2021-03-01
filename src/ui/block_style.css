@@ -1,9 +1,90 @@
 
-
+/* ### General ### */
+/*
 * {
     color: white;
     text-justify: center;
-   /* border-width: 1px;*/
-   /* border-color: black;*/
-   /* background-color: #181818;*/
+    border-width: 1px;
+    border-color: black;
+    background-color: #181818;
+}*/
+
+tab_bar {
+    background-color: #181818;
+}
+
+tab_bar>button {
+    background-color: #2e2e2e;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    border-radius: 3px;
+    flex-basis: 80px;
+    text-justify: center;
+/*    width: 200px;*/
+    height: 30px;
+}
+
+tab_bar>button:checked {
+    margin-bottom: 0px;
+    background-color: #383838;
+}
+
+/* ### Track view ### */
+
+track_view {
+	flex-grow: 1.0;
+	background-color: #181818;
+}
+
+/* ### Track ### */
+
+track {
+	flex-basis: 100px;
+	border-width: 0px;
+	background-color: #242424;
+}
+
+track>.track_controls {
+	flex-basis: 200px;
+	margin: 3px;
+	background-color: #f00;
+	border-width: 2px;
+	border-radius: 10px;
+	border-color: #727272;
+}
+
+knob {
+	background-color: #505050;
+}
+
+knob>.back {
+	background-color: #353535;
+}
+
+knob>.slider {
+	background-color: #f74c00;
+}
+
+.track_name {
+	background-color: #181818;
+	border-radius: 6px;
+	margin: 3px;
+	padding: 9px;
+	background_color: 0x36,0x36,0x36;
+	height: 30.0;
+	width: 200.0;
+}
+
+knob>.tick {
+	background-color: #c8c8c8;
+}
+
+button.remove_track {
+	background-color: #ff2080;
+	margin: 5px;
+	width: 20px;
+	height: 20px;
+	text-justify: center;
+	border-radius: 2px;
+	border-width: 0px; /* delete */
 }

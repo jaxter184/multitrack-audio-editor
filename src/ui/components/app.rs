@@ -36,20 +36,33 @@ impl BuildHandler for App {
 		// Header
 		//Toolbar::new().build(state, entity, |builder| builder.set_text("Tools"));
 		// Create a tab container
-		let (tab_bar, tab_container) = TabContainer::new().build(state, entity, |builder| builder);
+		let (tab_bar, tab_container) = TabContainer::new().build(
+			state, entity, |builder| builder
+			.set_display(Display::Flexbox)
+			.set_flex_grow(1.0)
+		);
 
 		// Add a tab to the tab bar
 		Button::with_label("Tracks")
-			.on_press(Event::new(TabEvent::SwitchTab(0)))
-			.build(state, tab_bar, |builder| builder.set_checked(true));
+		.on_press(Event::new(TabEvent::SwitchTab(0)))
+		.build(
+				state, tab_bar, |builder| builder
+				.set_checked(true)
+				.set_height(Length::Pixels(30.0))
+				.set_width(Length::Pixels(90.0))
+			);
 		// Tracks View
-		TrackView::new().build(state, entity, |builder| builder.class("item1"));
+		TrackView::new().build(state, tab_container, |builder| builder.class("item1"));
 		// Footer
 	//	StatusBar::new().build(state, tab_container, |builder| builder.set_text("Status Bar"));
 
 		Button::with_label("Effects")
-			.on_press(Event::new(TabEvent::SwitchTab(1)))
-			.build(state, tab_bar, |builder| builder);
+		.on_press(Event::new(TabEvent::SwitchTab(1)))
+		.build(
+			state, tab_bar, |builder| builder
+				.set_height(Length::Pixels(30.0))
+				.set_width(Length::Pixels(90.0))
+		);
 		// Effects Bar
 		EffectsBar::new().build(
 			state, tab_container, |builder| builder
@@ -64,6 +77,9 @@ impl BuildHandler for App {
 
 impl EventHandler for App {
 	fn on_event(&mut self, state: &mut State, entity: Entity, event: &mut Event) {
+		if let Some(_event) = event.message.downcast::<TabEvent>() {
+			println!("poo");
+		}
 		if let Some(window_event) = event.message.downcast::<WindowEvent>() {
 			match window_event {
 				WindowEvent::KeyDown(code, _) => {
