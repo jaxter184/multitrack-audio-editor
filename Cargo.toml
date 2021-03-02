@@ -8,4 +8,12 @@ edition = "2018"
 
 [dependencies]
 #tuix = {git = "https://github.com/geom3trik/tuix", rev = "498a4f0b6c4f3591b5bb362c3d986a95d7d1c129"}
-tuix = {path = "../tuix"}
+tuix = {path = "../../not_mine/tuix"}
+native-dialog = "0.5.4"
+femtovg = {git = "https://github.com/femtovg/femtovg", branch = "master"}
+dasp_sample = "0.11.0"
+cpal = "0.13"
+hound = { git = "https://github.com/ruuda/hound.git"}
+basedrop = { git = "https://github.com/glowcoil/basedrop.git" }
+ringbuf = "0.2"
+image = "0.23.13"

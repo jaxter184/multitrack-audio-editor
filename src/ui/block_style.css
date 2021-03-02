@@ -13,7 +13,7 @@ tab_bar {
     background-color: #181818;
 }
 
-tab_bar>button {
+tab_bar>tab {
     background-color: #2e2e2e;
     margin-right: 1px;
     margin-bottom: 1px;
@@ -24,7 +24,7 @@ tab_bar>button {
     height: 30px;
 }
 
-tab_bar>button:checked {
+tab_bar>tab:checked {
     margin-bottom: 0px;
     background-color: #383838;
 }
@@ -47,12 +47,18 @@ track {
 track>.track_controls {
 	flex-basis: 200px;
 	margin: 3px;
-	background-color: #f00;
+	padding: 6px;
+	background-color: #ff0000;
 	border-width: 2px;
 	border-radius: 10px;
 	border-color: #727272;
 }
-
+/*
+.test {
+	border-radius: 10px;
+	background-color: #00ffff;
+}
+*/
 knob {
 	background-color: #505050;
 }
@@ -62,7 +68,7 @@ knob>.back {
 }
 
 knob>.slider {
-	background-color: #f74c00;
+	background-color: #ff8020;
 }
 
 .track_name {
@@ -79,6 +85,14 @@ knob>.tick {
 	background-color: #c8c8c8;
 }
 
+button.open {
+    height: 24px;
+    width: 60px;
+    text-justify: center;
+    background-color: #ff8020;
+    border-radius: 3px;
+}
+
 button.remove_track {
 	background-color: #ff2080;
 	margin: 5px;
@@ -87,4 +101,17 @@ button.remove_track {
 	text-justify: center;
 	border-radius: 2px;
 	border-width: 0px; /* delete */
+}
+
+/* ### Effects ### */
+
+effects_bar {
+	flex-grow: 1.0;
+	background-color: #181818;
+}
+
+/* ### Transport ### */
+
+transport {
+    flex-basis: 300px;
 }

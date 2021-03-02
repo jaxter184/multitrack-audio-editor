@@ -4,6 +4,10 @@ use tuix::*;
 pub mod ui;
 pub use ui::*;
 
+mod audio_file;
+mod audio_stream;
+mod sample_player;
+mod utils;
 
 fn main() {
     let app = Application::new(|window_description, state, root| {

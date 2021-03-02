@@ -2,6 +2,8 @@
 use tuix::*;
 
 use super::track::Track;
+use basedrop::Collector;
+use crate::sample_player::*;
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum TrackViewEvent {
@@ -15,13 +17,11 @@ pub enum TrackViewEvent {
 }
 
 pub struct TrackView {
-	rvbox: Entity,
 }
 
 impl TrackView {
 	pub fn new() -> Self {
 		Self {
-			rvbox: Entity::null(),
 		}
 	}
 }
@@ -39,8 +39,6 @@ impl BuildHandler for TrackView {
 
 	//	let scroller = ScrollContainer::new().build(state, entity, |builder| builder);
 		
-		Track::new().build(state, entity, |builder| builder);
-
 		entity.set_element(state, "track_view")
 	}
 }
@@ -50,14 +48,19 @@ impl EventHandler for TrackView {
 		if let Some(event) = event.message.downcast::<TrackViewEvent>() {
 			match event {
 				TrackViewEvent::AddTrack => {
-					Track::new().build(state, entity, |builder| builder);
+				    // initialize gc
+				    let gc = Collector::new();
+
+				    // Create the sample player and controller
+				    let (mut player, mut controller) = sample_player(&gc);
+					Track::new(gc, controller).build(state, entity, |builder| builder);
 				},
 				_ => (),
 			}
 		}
 		if let Some(window_event) = event.message.downcast::<WindowEvent>() {
 			match window_event {
-				WindowEvent::MouseDown(button) => {
+				WindowEvent::MouseDown(_button) => {
 					if entity == state.hovered {
                         state.insert_event(Event::new(TrackViewEvent::AddTrack).target(entity).origin(entity));
 					}
